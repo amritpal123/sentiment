@@ -1,0 +1,83 @@
+{% extends 'sentiment/basic.html' %}
+
+{%load static%}
+
+{% block title%}Twitter Sentiment {% endblock%}
+
+{% block body%}
+
+      <style>
+
+          .x{
+          width:30%;
+          height:100%;
+          margin-top: 80px;
+          }
+          .y{
+          position:absolute;
+          left:35%;
+          }
+
+
+      </style>
+
+<div class="list-group x">
+
+    {% for i1,i2 in mylist %}
+  <a href="{% url 'analize' i1 %}"  name= 'topic'  class="list-group-item list-group-item-action active">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">#{{i1}}</h5>
+      <small>{{i2}}</small>
+
+    </div>
+
+  </a>
+
+  {% endfor %}
+
+    <div class="y">
+  <p>
+        <h2 style="text-transform:capitalize;"><center>Welcome back {{user.first_name}} {{user.last_name}}</center></h2>
+        <br><br><h3> This is Website created for the purpose of research and Analysis. </h3>
+
+        <br><h6> Here in Left Side you see the latest Trending Hashtags on Twitter.By
+            clicking on any Item in left list you can Analyize the Tweets realted to that
+            topic and get sentiments of that Tweets i.e whether the tweet is positive ,negative
+             or neutral and see the public view and Also you get Wordcloud which shows the most
+            frequently words are used in the Tweets.
+            <br>
+            Also you get the Information of 3 Users who's Tweet is more Retweet in the given
+            dataset.Which helps to identify who is the Influence the trend.
+            <br><br>
+            Below is Tweets Volume of the Trending Topics:
+
+            <img src="{%static 'image/vol.png'%}">
+        </h6>
+
+
+  </p>
+
+
+    </div>
+
+<!--
+  <div class="y">
+    <img src="{%static 'image/vol.png'%}">
+
+  </div>
+
+-->
+
+</div>
+
+
+
+
+{% endblock%}
+
+
+
+  <!-- image display
+<img src="{%static 'image/img1.png'%}">
+-->
+

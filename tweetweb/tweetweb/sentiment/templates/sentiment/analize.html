@@ -1,0 +1,152 @@
+{% extends 'sentiment/basic.html' %}
+
+{%load static%}
+
+
+{%block title%}Analyize page{% endblock %}
+{% block body %}
+
+<style>
+
+    .x{
+          margin-top: 80px;
+       }
+</style>
+
+<div id="result" class="x">
+<img src="{% static 'image/senti.png'%}">
+<img src="{% static 'image/wordc.png'%}">
+</div>
+
+
+<div id="retweet">
+
+{% for item in retweet%}
+
+<table class="table table-bordered">
+
+    <!--
+    <thead>
+    <tr>
+
+
+
+        <th scope="col">S.No</th>
+        <th scope="col">DateTime</th>
+        <th scope="col">Tweet ID</th>
+        <th scope="col">User Name</th>
+        <th scope="col">User Description</th>
+
+        <th scope="col">Tweet</th>
+        <th scope="col">RetweetCount</th>
+        <th scope="col">Location</th>
+        <th scope="col">Sentiment</th>
+        <th scope="col">Followers</th>
+        <th scope="col">Following</th>
+        <th scope="col">Total Tweets of Account</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for item in retweet%}
+    <!--
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{item.DateTime}}</td>
+
+        <td><a href="https://twitter.com/{{item.name}}/status/{{item.Tweet_Id}}" target="_blank">{{item.Tweet_Id}}</td>
+        <td><a href="https://twitter.com/{{item.name}}" target="_blank">{{item.name}}</a></td>
+        <td>{{item.description}}</td>
+        <td>{{item.Tweet}}</td>
+        <td>{{item.Retweet}}</td>
+
+        <td>{{item.Location}}</td>
+      <td>{{item.Label}}</td>
+
+        <td>{{item.followers_count}}</td>
+        <td>{{item.following}}</td>
+        <td>{{item.total_tweets}}</td>
+
+    </tr>
+    {% endfor%}
+    -->
+
+    <tbody>
+    <tr>
+
+        <th colspan="2"> <h2><br><center>User {{ forloop.counter }}<center><h2><th>
+    </tr>
+    <tr>
+        <th>Basis</th>
+        <th> Values</th>
+    </tr>
+    <tr>
+        <th>DateTime</th>
+        <td>{{item.DateTime}}</td>
+
+    </tr>
+
+    <tr>
+        <th> Tweet ID</th>
+        <td><a href="https://twitter.com/{{item.name}}/status/{{item.Tweet_Id}}" target="_blank">{{item.Tweet_Id}}</td>
+    </tr>
+
+    <tr>
+        <th>User Name</th>
+        <td><a href="https://twitter.com/{{item.name}}" target="_blank">{{item.name}}</a></td>
+    </tr>
+
+    <tr>
+        <th>User Description</th>
+        <td>{{item.description}}</td>
+    </tr>
+
+    <tr>
+        <th>Tweet</th>
+        <td>{{item.Tweet}}</td>
+    </tr>
+
+    <tr>
+        <th>RetweetCount</th>
+        <td>{{item.Retweet}}</td>
+    </tr>
+
+    <tr>
+        <th>Location</th>
+        <td>{{item.Location}}</td>
+    </tr>
+
+    <tr>
+        <th>Sentiment</th>
+        <td>{{item.Label}}</td>
+    </tr>
+
+    <tr>
+        <th>Followers</th>
+        <td>{{item.followers_count}}</td>
+    </tr>
+
+    <tr>
+        <th>Following</th>
+        <td>{{item.following}}</td>
+    </tr>
+
+    <tr>
+        <th>Total Tweets of Account</th>
+        <td>{{item.total_tweets}}</td>
+    </tr>
+
+  </tbody>
+</table>
+{%endfor%}
+</div>
+{% endblock%}
+
+<!-- Optional JavaScript
+<img src="{%static 'image/senti.png'%}">
+
+-->
+</body>
+</html>
